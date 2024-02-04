@@ -6,6 +6,11 @@ server:
 
 # db & jsp설정
 spring:
+  cache:
+    type: redis
+  redis:
+    host: ${REDIS_HOST}
+    port: 6379
   datasource:
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
     url: jdbc:log4jdbc:mysql://${MYSQL_ADDR}:${MYSQL_PORT}/${MYSQL_DB}
@@ -42,6 +47,7 @@ logging:
 jwt:
   header: Authorization
   secret: ${JWT_SECRET}
-  accessTokenValidityInSeconds: ${JWT_TOKEN_VIS}
+  access-token-validity-in-seconds: ${JWT_ACCESS_VIS}
+  refresh-token-validity-in-seconds: ${JWT_REFRESH_VIS}
   
     

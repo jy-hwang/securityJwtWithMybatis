@@ -42,7 +42,7 @@ public class SecurityConfig {
 				.exceptionHandling(c -> {
 					c.authenticationEntryPoint(jwtAuthenticationEntryPoint).accessDeniedHandler(jwtAccessDeniedHandler);
 				}).authorizeHttpRequests(c -> {
-					c.antMatchers("/api/v1/member", "/api/v1/member/token", "/api/v1/member/login",
+					c.antMatchers("/api/v1/member/signup", "/api/v1/member/login", "/api/v1/member/reissue","/api/v1/member/logout",
 							"/api/v1/member/exists/**").permitAll().anyRequest().authenticated();
 				});
 
